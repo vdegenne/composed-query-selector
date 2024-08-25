@@ -1,0 +1,37 @@
+{
+	"name": "composed-query-selector",
+	"type": "module",
+	"description": "Like document.querySelectorAll but shadow-dom see-through",
+	"version": "1.0.0",
+	"devDependencies": {
+		"tslib": "^2.7.0",
+		"typescript": "^5.5.4",
+		"wireit": "^0.14.8"
+	},
+	"scripts": {
+		"build": "wireit"
+	},
+	"wireit": {
+		"build": {
+			"command": "tsc --pretty",
+			"clean": "if-file-deleted",
+			"files": [
+				"src",
+				"tsconfig.json"
+			],
+			"output": [
+				"lib"
+			]
+		}
+	},
+	"files": [
+		"./lib/index.js",
+		"./lib/index.d.ts"
+	],
+	"exports": {
+		".": {
+			"default": "./lib/index.js",
+			"types": "./lib/index.d.ts"
+		}
+	}
+}
