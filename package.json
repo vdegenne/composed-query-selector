@@ -2,7 +2,7 @@
 	"name": "composed-query-selector",
 	"type": "module",
 	"description": "Like document.querySelectorAll but shadow-dom see-through",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"devDependencies": {
 		"tslib": "^2.7.0",
 		"typescript": "^5.5.4",
