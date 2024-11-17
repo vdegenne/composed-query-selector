@@ -19,15 +19,17 @@ function getAllShadowHosts(
 }
 
 // Function to query elements in the document and all shadow DOMs
-export function composedQuerySelector<K extends keyof HTMLElementTagNameMap>(
+export function querySelectorAll<K extends keyof HTMLElementTagNameMap>(
 	selector: K,
+	from: Element | Document,
 ): HTMLElementTagNameMap[K][];
-export function composedQuerySelector<E extends Element = Element>(
+export function querySelectorAll<E extends Element = Element>(
 	selector: string,
+	from: Element | Document,
 ): E[];
-export function composedQuerySelector(selector: string): Element[] {
+export function querySelectorAll(selector: string, from = document): Element[] {
 	// Start by querying in the document
-	let results: Element[] = Array.from(document.querySelectorAll(selector));
+	let results: Element[] = Array.from(from.querySelectorAll(selector));
 
 	// Get all shadow hosts and query within their shadow DOMs
 	const shadowHosts = getAllShadowHosts();
@@ -41,4 +43,16 @@ export function composedQuerySelector(selector: string): Element[] {
 	});
 
 	return results;
+}
+
+export function querySelector<K extends keyof HTMLElementTagNameMap>(
+	selector: K,
+	from: Element | Document,
+): HTMLElementTagNameMap[K];
+export function querySelector<E extends Element = Element>(
+	selector: string,
+	from: Element | Document,
+): E;
+export function querySelector(selector: string, from = document): Element {
+	return querySelectorAll(selector, from)[0];
 }
