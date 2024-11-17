@@ -21,11 +21,11 @@ function getAllShadowHosts(
 // Function to query elements in the document and all shadow DOMs
 export function querySelectorAll<K extends keyof HTMLElementTagNameMap>(
 	selector: K,
-	from: Element | Document,
+	from?: Element | Document,
 ): HTMLElementTagNameMap[K][];
 export function querySelectorAll<E extends Element = Element>(
 	selector: string,
-	from: Element | Document,
+	from?: Element | Document,
 ): E[];
 export function querySelectorAll(selector: string, from = document): Element[] {
 	// Start by querying in the document
@@ -47,11 +47,11 @@ export function querySelectorAll(selector: string, from = document): Element[] {
 
 export function querySelector<K extends keyof HTMLElementTagNameMap>(
 	selector: K,
-	from: Element | Document,
+	from?: Element | Document,
 ): HTMLElementTagNameMap[K];
 export function querySelector<E extends Element = Element>(
 	selector: string,
-	from: Element | Document,
+	from?: Element | Document,
 ): E;
 export function querySelector(selector: string, from = document): Element {
 	return querySelectorAll(selector, from)[0];
