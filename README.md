@@ -1,13 +1,13 @@
 # composed-query-selector
 
-Like document.querySelectorAll but shadow-dom see-through
+Like document.querySelector[All] but shadow-dom see-through
 
 ## Usage
 
 ```ts
-import {composedQuerySelector} from 'composed-query-selector';
+import {querySelectorAll} from 'composed-query-selector';
 
-const customElements = composedQuerySelector(
+const customElements = querySelectorAll(
 	'custom-elements-in-other-custom-elements',
 );
 ```
