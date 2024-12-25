@@ -23,11 +23,11 @@ export function querySelectorAll<K extends keyof HTMLElementTagNameMap>(
 	selector: K,
 	from?: Element | Document,
 ): HTMLElementTagNameMap[K][];
-export function querySelectorAll<E extends Element = Element>(
+export function querySelectorAll<E extends Element = HTMLElement>(
 	selector: string,
 	from?: Element | Document,
 ): E[];
-export function querySelectorAll(selector: string, from = document): Element[] {
+export function querySelectorAll(selector: string, from = document) {
 	// Start by querying in the document
 	let results: Element[] = Array.from(from.querySelectorAll(selector));
 
@@ -45,14 +45,20 @@ export function querySelectorAll(selector: string, from = document): Element[] {
 	return results;
 }
 
+// alias
+export const cquerySelectorAll = querySelectorAll;
+
 export function querySelector<K extends keyof HTMLElementTagNameMap>(
 	selector: K,
 	from?: Element | Document,
 ): HTMLElementTagNameMap[K];
-export function querySelector<E extends Element = Element>(
+export function querySelector<E extends Element = HTMLElement>(
 	selector: string,
 	from?: Element | Document,
 ): E;
 export function querySelector(selector: string, from = document): Element {
 	return querySelectorAll(selector, from)[0];
 }
+
+// alias
+export const cquerySelector = querySelector;
